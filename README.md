@@ -6,7 +6,7 @@ In this repository, we propose a tool and ready-to-use dataset from the [Allside
 
 ## How this work
 
-We manually get the HTML page with ratings for all different categories, as it is simpler. These were collected on September 28th 2022. We then use a web scraper to gather additional information and store the data in a tabular format.
+We manually get the HTML page with fully scrolled-down ratings, for all different categories. These were collected on September 28th 2022. We then use a web scraper to gather additional information and store the data in a tabular format.
 
 ## Usage
 
