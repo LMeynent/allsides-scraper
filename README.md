@@ -8,7 +8,7 @@ In this repository, we propose a tool and ready-to-use dataset from the [Allside
 
 We manually get the HTML page with ratings for all different categories, as it is simpler. These were collected on September 28th 2022. We then use a web scraper to gather additional information and store the data in a tabular format.
 
-## Usage
+## Usage
 
 We provide an `environment.yml` file to use with [`conda`](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). To run the script:
 
