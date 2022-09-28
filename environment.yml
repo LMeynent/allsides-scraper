@@ -1,0 +1,8 @@
+name: allsides-scraper
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - requests
+  - beautifulsoup4
