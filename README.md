@@ -4,7 +4,7 @@
 
 In this repository, we propose a tool and ready-to-use dataset from the [Allsides](https://www.allsides.com/media-bias/ratings?field_featured_bias_rating_value=All&field_news_source_type_tid%5B%5D=1&field_news_source_type_tid%5B%5D=2&field_news_source_type_tid%5B%5D=3&field_news_source_type_tid%5B%5D=4&field_news_source_type_tid%5B%5D=5&field_news_bias_nid_1%5B1%5D=1&field_news_bias_nid_1%5B2%5D=2&field_news_bias_nid_1%5B3%5D=3&title=) website, which rates the political bias of news sources.
 
-## How this work
+## How it works
 
 We manually get the HTML page with fully scrolled-down ratings, for all different categories. These were collected on September 28th 2022. We then use a web scraper to gather additional information and store the data in a tabular format.
 
