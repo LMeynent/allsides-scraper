@@ -14,6 +14,7 @@ rgx_bias = re.compile(
     r"<a href=\"https:\/\/www.allsides.com\/media-bias\/[\w-]+\"><img alt=\"AllSides Media Bias Rating: ([\w\s]+)\"")
 rgx_agree = re.compile(r"<span class=\"agree\">(\d+)<\/span>\/<span class=\"disagree\">(\d+)<\/span>")
 rgx_url = re.compile(r"href=\"([^\"]+)\"")
+rgx_confidence = re.compile(r"<span>AllSides has <\/span>([^<\s]+)[^<]*<span>")
 
 if __name__ == '__main__':
     files = os.listdir('html')
@@ -45,10 +46,14 @@ if __name__ == '__main__':
 
     for idx, data in tqdm(df.iterrows(), total=len(df), unit='element', desc='Scraping'):
         sleep(1)
-        try:
-            soup = BeautifulSoup(requests.get(data['allsides_url']).text, 'html.parser').find('a', title=idx)
-            df.loc[idx, 'url'] = rgx_url.search(str(soup))[1]
-        except TypeError:
-            pass
+        soup = BeautifulSoup(requests.get(data['allsides_url']).text, 'html.parser')
+
+        match = rgx_url.search(str(soup.find('a', title=idx)))
+        if match is not None:
+            df.loc[idx, 'url'] = match[1]
+
+        match = rgx_confidence.search(str(soup.find('ul', class_='b-list')))
+        if match is not None:
+            df.loc[idx, 'confidence'] = match[1]
 
     df.to_csv('allsides.csv')
